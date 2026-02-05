@@ -1766,7 +1766,7 @@ void play_midi() {
             tracks_running = 1;
 
             /* Check if track is ready to fire */
-            if (!tracks[i].finished && current_tick >= tracks[i].absolute_event_time) {
+            while (!tracks[i].finished && current_tick >= tracks[i].absolute_event_time) {
                 
                 unsigned char status = *tracks[i].ptr++;
                 
